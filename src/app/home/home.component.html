@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1>
+      <span translate>Movies</span>
+    </h1>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="category" [placeholder]="'Search' | translate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button
+        [disabled]="category === ''"
+        (click)="getMoviesFilter()"
+        expand="block"
+        fill="solid"
+        shape="round"
+        translate
+      >
+        Search category
+      </ion-button>
+      <ion-button
+        *ngIf="filterActive"
+        [disabled]="category === ''"
+        (click)="getMovies()"
+        expand="block"
+        fill="solid"
+        shape="round"
+        translate
+      >
+        Clear
+      </ion-button>
+    </ion-item>
+    <ion-list *ngIf="!filterActive">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6" *ngFor="let item of listMovies">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>{{ item['name'] }}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <img [src]="item['image']! === null ? './assets/default_movie.png' : item['image']['medium']" alt="" />
+                <ion-item>
+                  <ion-label text-wrap translate class="linkSeeMore" (click)="openModal(item)">Show more</ion-label>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngIf="filterActive">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6" *ngFor="let item of listMovies">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>{{ item['show']['name'] }}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <img
+                  [src]="
+                    item['show']['image'] === null ? './assets/default_movie.png' : item['show']['image']['medium']
+                  "
+                  alt=""
+                />
+                <ion-item>
+                  <ion-label text-wrap translate class="linkSeeMore" (click)="openModal(item)" translate
+                    >Show more
+                  </ion-label>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </div>
+</div>

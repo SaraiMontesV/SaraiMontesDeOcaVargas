@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <ion-item>
+      <ion-button slot="end" (click)="closeModal()" expand="block" fill="solid" shape="round" translate>
+        Close
+      </ion-button>
+    </ion-item>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ movieInfo['name'] }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="movieInfo['image'] === null ? './assets/default_movie.png' : movieInfo['image']['medium']" alt="" />
+        <p [innerHTML]="movieInfo['summary']"></p>
+        <ion-item>
+          <ion-chip>
+            <ion-label text-wrap>Language: {{ movieInfo['language'] }}</ion-label>
+          </ion-chip>
+          <ion-chip>
+            <ion-label text-wrap>Genre: {{ movieInfo['genres'][0] }}</ion-label>
+          </ion-chip>
+          <ion-chip>
+            <ion-label text-wrap>Status: {{ movieInfo['status'] }}</ion-label>
+          </ion-chip>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</div>

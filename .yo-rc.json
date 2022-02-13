@@ -1,0 +1,31 @@
+{
+  "generator-ngx-rocket": {
+    "version": "10.1.2",
+    "props": {
+      "location": "path",
+      "strict": true,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "appName": "SaraiMontesDeOcaVargas",
+      "target": ["web", "cordova"],
+      "mobile": ["ios", "android"],
+      "ui": "bootstrap",
+      "features": ["pwa", "auth", "lazy"],
+      "languages": ["en-US", "es-ES"],
+      "tools": ["prettier", "hads"],
+      "utility": [],
+      "deploy": "firebase",
+      "projectName": "sarai-montes-de-oca-vargas",
+      "packageManager": "npm",
+      "desktop": [],
+      "pwa": true,
+      "auth": true,
+      "lazy": true,
+      "e2e": false,
+      "cypress": false,
+      "angulartics": false
+    }
+  }
+}
